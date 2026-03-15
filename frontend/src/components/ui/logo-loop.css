@@ -1,0 +1,36 @@
+/* Logo Loop — pure CSS infinite marquee */
+.logo-loop-track {
+  display: flex;
+  width: max-content;
+  animation: logo-scroll var(--logo-duration, 30s) linear infinite;
+  will-change: transform;
+}
+
+.logo-loop-track--reverse {
+  animation-direction: reverse;
+}
+
+.logo-loop-track--hoverable:hover {
+  animation-play-state: paused;
+}
+
+.logo-loop-set {
+  display: flex;
+  align-items: center;
+  gap: var(--logo-gap, 56px);
+  /* add trailing gap to match the leading gap of the next set */
+  padding-right: var(--logo-gap, 56px);
+  flex-shrink: 0;
+}
+
+.logo-loop-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@keyframes logo-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
